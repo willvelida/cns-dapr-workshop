@@ -19,7 +19,7 @@ We will install Dapr as part of this workshop.
 
 ## Workshop lessons
 
-1. Introduction to Dapr and installing locally.
+1. [Introduction to Dapr and installing locally.](./1.IntroToDapr/README.md)
 1. Working with Service Invocation.
 1. Working with State Management.
 1. Working with Pub/Sub.
