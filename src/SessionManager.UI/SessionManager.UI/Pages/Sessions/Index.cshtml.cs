@@ -21,7 +21,7 @@ namespace SessionManager.UI.Pages.Sessions
         {
             SessionSpeaker = Request.Cookies["SessionSpeakerCookie"];
             var httpClient = _httpClientFactory.CreateClient("BackendUrl");
-            SessionsList = await httpClient.GetFromJsonAsync<List<Session>>($"/sessions?speakerName={SessionSpeaker}");
+            SessionsList = await httpClient.GetFromJsonAsync<List<Session>>($"api/sessions?speakerName={SessionSpeaker}");
         }
 
         public async Task<IActionResult> OnPostDeleteAsync(Guid sessionId)

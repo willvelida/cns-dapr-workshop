@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SessionManager.UI.Pages
 {
+    [IgnoreAntiforgeryToken(Order = 1001)]
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;

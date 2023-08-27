@@ -3,10 +3,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Services.AddHttpClient("BackedUrl", httpClient =>
+builder.Services.AddHttpClient("BackendUrl", httpClient =>
 {
     httpClient.BaseAddress = new Uri(builder.Configuration.GetValue<string>("BackendApiConfig:BackendUrl"));
 });
+
+builder.Services.AddDaprClient();
 
 var app = builder.Build();
 
