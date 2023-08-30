@@ -1,0 +1,70 @@
+﻿@page "/sessions"
+@using SessionManager.UI.Models;
+@using SessionManager.UI.Services;
+@inject ISessionManagerService SessionManagerService
+
+<div class="row">
+    <div class="col-lg-9">
+        <h1>Sessions</h1>
+    </div>
+    <div class="col-lg-3 text-right">
+        <a class="btn btn-success btn-sm" href="/sessions/create" role="button">Create New Session</a>
+    </div>
+</div>
+
+@if (_sessions != null && _sessions.Count > 0)
+{
+    <table class="table table-bordered table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Speaker</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in _sessions)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.Date</td>
+                    <td>@item.Location</td>
+                    <td>@item.Speaker</td>
+                    <td>@item.SpeakerEmail</td>
+                    <td class="text-right">
+                        <a class="btn btn-primary btn-sm" href="/sessions/detail/@item.Id" role="button">Details</a>
+                        <a class="btn btn-primary btn-sm" href="/sessions/edit/@item.Id" role="button">Edit</a>
+                        <button class="btn btn-danger btn-sm" @onclick="@(e => DeleteSession(item.Id))" role="button">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Loading....</p>
+}
+
+@code {
+    List<Session> _sessions = new List<Session>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _sessions = await SessionManagerService.GetAllSessions();
+    }
+
+    public async Task DeleteSession(Guid sessionId)
+    {
+        var isDeleted = await SessionManagerService.DeleteSession(sessionId);
+        if (isDeleted)
+        {
+            _sessions.RemoveAll(x => x.Id == sessionId);
+        }
+    }
+}

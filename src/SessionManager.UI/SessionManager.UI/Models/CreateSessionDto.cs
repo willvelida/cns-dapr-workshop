@@ -1,4 +1,4 @@
-﻿namespace SessionManager.Api.Models
+﻿namespace SessionManager.UI.Models
 {
     public class CreateSessionDto
     {

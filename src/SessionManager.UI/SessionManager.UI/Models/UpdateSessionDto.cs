@@ -1,6 +1,6 @@
-﻿namespace SessionManager.Api.Models
+﻿namespace SessionManager.UI.Models
 {
-    public class CreateSessionDto
+    public class UpdateSessionDto
     {
         public string Name { get; set; }
         public string? Description { get; set; }

@@ -1,7 +1,8 @@
-﻿namespace SessionManager.Api.Models
+﻿namespace SessionManager.UI.Models
 {
-    public class CreateSessionDto
+    public class Session
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
         public DateTime Date { get; set; }

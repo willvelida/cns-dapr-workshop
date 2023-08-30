@@ -1,6 +1,6 @@
 # Getting started with Dapr
 
-In this lesson, you'll install the Dapr CLI on your local machine and initialize the Dapr runtime so you can start working with Dapr in your applications.
+In this module, you'll install the Dapr CLI on your local machine and initialize the Dapr runtime so you can start working with Dapr in your applications.
 
 - [Step 1: Install the Dapr CLI](#step-1-install-the-dapr-cli)
 - [Step 2: Initialize Dapr](#step-2-initialize-dapr-🚀)

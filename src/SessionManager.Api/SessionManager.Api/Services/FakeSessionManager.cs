@@ -18,8 +18,7 @@ namespace SessionManager.Api.Services
                 Id = Guid.NewGuid(),
                 Name = createSessionDto.Name,
                 Description = createSessionDto.Description,
-                Start = createSessionDto.Start,
-                End = createSessionDto.End,
+                Date = createSessionDto.Date,
                 Location = createSessionDto.Location,
                 Speaker = createSessionDto.Speaker,
                 SpeakerEmail = createSessionDto.SpeakerEmail
@@ -45,9 +44,9 @@ namespace SessionManager.Api.Services
             return Task.FromResult(session);
         }
 
-        public Task<List<Session>> GetSessionsBySpeaker(string speakerName)
+        public Task<List<Session>> GetAllSessions()
         {
-            var sessionList = _sessions.Where(s => s.Speaker.Equals(speakerName)).ToList();
+            var sessionList = _sessions.ToList();
             return Task.FromResult(sessionList);
         }
 
@@ -58,8 +57,7 @@ namespace SessionManager.Api.Services
             {
                 session.Name = updateSessionDto.Name;
                 session.Description = updateSessionDto.Description;
-                session.Start = updateSessionDto.Start;
-                session.End = updateSessionDto.End;
+                session.Date = updateSessionDto.Date;
                 session.Location = updateSessionDto.Location;
                 session.Speaker = updateSessionDto.Speaker;
                 session.SpeakerEmail = updateSessionDto.SpeakerEmail;
@@ -77,8 +75,7 @@ namespace SessionManager.Api.Services
                     Id = Guid.NewGuid(),
                     Name = $"Session Number: {i}",
                     Description = $"Session Number: {i} will be awesome!",
-                    Start = DateTime.UtcNow,
-                    End = DateTime.UtcNow.AddHours(1),
+                    Date = DateTime.UtcNow,
                     Location = $"Conference Room: {i}",
                     Speaker = "Will Velida",
                     SpeakerEmail = "willvelida@hotmail.co.uk"

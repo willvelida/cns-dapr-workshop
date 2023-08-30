@@ -1,0 +1,73 @@
+﻿@page "/sessions/edit/{id:guid}"
+@using SessionManager.UI.Models;
+@using SessionManager.UI.Services;
+@inject ISessionManagerService ServiceManagerService
+@inject NavigationManager NavigationManager
+
+@if (session is not null)
+{
+    <div class="row">
+        <div class="col-lg-9">
+            <h1>Edit @session.Name</h1>
+        </div>
+        <div class="col-lg-3 text-right">
+            <a class="btn btn-secondary btn-sm" href="sessions" role="button">Back to Sessions</a>
+        </div>
+    </div>
+
+    <EditForm Model="@session" OnValidSubmit="@SubmitSession">
+        <div class="form-group">
+            <label>Name</label>
+            <InputText class="form-control" @bind-Value="session.Name" />
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <InputText class="form-control" @bind-Value="session.Description" />
+        </div>
+        <div class="form-group">
+            <label>Date</label>
+            <InputDate class="form-control" @bind-Value="session.Date" />
+        </div>
+        <div class="form-group">
+            <label>Location</label>
+            <InputText class="form-control" @bind-Value="session.Location" />
+        </div>
+        <div class="form-group">
+            <label>Speaker</label>
+            <InputText class="form-control" @bind-Value="session.Speaker" />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <InputText class="form-control" @bind-Value="session.SpeakerEmail" />
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </EditForm>
+}
+
+@code {
+    [Parameter]
+    public Guid Id { get; set; }
+
+    public Session session { get; set; }
+    public UpdateSessionDto updateSessionDto { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        session = await ServiceManagerService.GetSessionById(Id);
+    }
+
+    private async Task SubmitSession()
+    {
+        updateSessionDto = new UpdateSessionDto()
+            {
+                Name = session.Name,
+                Description = session.Description,
+                Date = session.Date,
+                Location = session.Location,
+                Speaker = session.Speaker,
+                SpeakerEmail = session.SpeakerEmail
+            };
+        await ServiceManagerService.UpdateExistingSession(Id, updateSessionDto);
+        NavigationManager.NavigateTo("/sessions");
+    }
+}

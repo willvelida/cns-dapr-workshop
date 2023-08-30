@@ -1,14 +1,14 @@
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
+using SessionManager.UI.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
-builder.Services.AddHttpClient("BackendUrl", httpClient =>
-{
-    httpClient.BaseAddress = new Uri(builder.Configuration.GetValue<string>("BackendApiConfig:BackendUrl"));
-});
-
-builder.Services.AddDaprClient();
+builder.Services.AddServerSideBlazor();
+builder.Services.AddHttpClient("Sessions", (httpClient) => httpClient.BaseAddress = new Uri(builder.Configuration.GetValue<string>("SessionsApi")));
+builder.Services.AddScoped<ISessionManagerService, SessionManagerService>();
 
 var app = builder.Build();
 
@@ -21,12 +21,12 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
-
-app.MapRazorPages();
+app.MapBlazorHub();
+app.MapFallbackToPage("/_Host");
 
 app.Run();

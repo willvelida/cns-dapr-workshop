@@ -18,9 +18,9 @@ namespace SessionManager.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Session>> Get(string speakerName)
+        public async Task<IEnumerable<Session>> Get()
         {
-            return await _sessionManager.GetSessionsBySpeaker(speakerName);
+            return await _sessionManager.GetAllSessions();
         }
 
         [HttpGet("{sessionId}")]
