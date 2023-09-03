@@ -27,5 +27,5 @@ We will install Dapr as part of this workshop.
 1. [Working with Pub/Sub.](./4.Pub-Sub/README.md)
 1. [Working with Bindings in Dapr.](./5.Bindings/README.md)
 1. Deploying Dapr Applications to Azure.
-    - (Option 1): Deploy to Azure Container Apps.
-    - (Option 2): Deploy to Azure Kubernetes Service.
+    - [(Option 1): Deploy to Azure Container Apps.](./6.DeployToAzure/DeployToACA.md)
+    - [(Option 2): Deploy to Azure Kubernetes Service.](./6.DeployToAzure/DeployToAKS.md)
