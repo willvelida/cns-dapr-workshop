@@ -1,0 +1,15 @@
+componentType: bindings.azure.blobstorage
+version: v1
+metadata:
+  - name: storageAccount
+    value: "<Your Storage Account Name>"
+  - name: storageAccessKey
+    value: "***********"
+  - name: container
+    value: "externaltaskscontainer"
+  - name: decodeBase64
+    value: "false"
+  - name: publicAccessLevel
+    value: "none"
+scopes:
+  - tasksmanager-backend-processor

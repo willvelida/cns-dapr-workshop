@@ -1,0 +1,15 @@
+componentType: bindings.azure.storagequeues
+version: v1
+metadata:
+  - name: storageAccount
+    value: "<Your Storage Account Name>"
+  - name: storageAccessKey
+    value: "***********"
+  - name: queue
+    value: "external-tasks-queue"
+  - name: decodeBase64
+    value: "true"
+  - name: route
+    value: /externaltasksprocessor/process
+scopes:
+  - tasksmanager-backend-processor
