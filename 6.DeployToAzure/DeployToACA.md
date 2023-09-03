@@ -90,7 +90,9 @@ az containerapp env create `
 --location $LOCATION
 ```
 
-Dapr Components are configured at the environment level, so we can go ahead and create the various Dapr components that we have used for our application. Let's start with our state management component by using the following yaml file:
+Dapr Components are configured at the environment level, so we can go ahead and create the various Dapr components that we have used for our application. The schema for Dapr components in Azure Container Apps differ slightly from how we normally define them. The metadata for most Dapr components should be the same, so when you're defining components for your Container Apps environment, ensure that they have the right metadata values for it.
+
+Let's start with our state management component by using the following yaml file:
 
 ```yaml
 componentType: state.azure.cosmosdb
@@ -295,3 +297,9 @@ az containerapp create `
 ```
 
 Once all your applications are running, we should see them in running in Azure Container Apps!.
+
+To delete your resources, just delete the resource group by running the following:
+
+```powershell
+az group delete --name $RG_NAME
+```
