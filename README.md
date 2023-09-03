@@ -14,6 +14,8 @@ In this workshop, you will learn:
 - Docker Desktop
 - Bicep
 - An Azure Subscription
+- Visual Studio Code, or Visual Studio (If you have JetBrains, that's fine 😊 we'll be running our apps via the CLI anyway).
+- [Azure Storage Explorer](https://azure.microsoft.com/en-us/products/storage/storage-explorer/#overview) 
 
 We will install Dapr as part of this workshop.
 
