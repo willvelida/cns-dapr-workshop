@@ -332,4 +332,4 @@ namespace TasksTracker.Processor.Backend.Svc.Controllers
 }
 ```
 
-In the next module, we'll [deploy our Dapr application to Azure Container Apps](../6.DeployToAzure/DeployToACA.md) or we'll deploy to [Azure Kubernetes Service](../6.DeployToAzure/DeployToAKS.md).
+In the next module, we'll [deploy our Dapr application to Azure Container Apps](../6.DeployToAzure/DeployToACA.md).

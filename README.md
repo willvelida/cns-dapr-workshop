@@ -11,7 +11,6 @@ In this workshop, you will learn:
 ## Workshop Prerequisties
 
 - .NET 7
-- Docker Desktop
 - An Azure Subscription
 - Visual Studio Code, or Visual Studio (If you have JetBrains, that's fine 😊 we'll be running our apps via the CLI anyway).
 - [Azure Storage Explorer](https://azure.microsoft.com/en-us/products/storage/storage-explorer/#overview)
@@ -27,5 +26,4 @@ We will install Dapr as part of this workshop.
 1. [Working with Pub/Sub.](./4.Pub-Sub/README.md)
 1. [Working with Bindings in Dapr.](./5.Bindings/README.md)
 1. Deploying Dapr Applications to Azure.
-    - [(Option 1): Deploy to Azure Container Apps.](./6.DeployToAzure/DeployToACA.md)
-    - [(Option 2): Deploy to Azure Kubernetes Service.](./6.DeployToAzure/DeployToAKS.md)
+    - [ Deploy to Azure Container Apps.](./6.DeployToAzure/DeployToACA.md)

@@ -1,4 +1,4 @@
-## (Option 1): Deploy to Azure Container Apps.
+## Deploy to Azure Container Apps.
 
 In this module, we'll deploy our Dapr applications to Azure Container Apps. Azure Container Apps provides integration with the Dapr framework, so you can deploy your Dapr applications to Azure Container Apps without having to do any heavy configuration to make it work. Take a look at the following diagram:
 
@@ -238,6 +238,7 @@ az containerapp create `
 --registry-server "$ACR_NAME.azurecr.io" `
 --target-port [port number that was generated when you created your docker file in vs code] `
 --ingress 'external' `
+--enable-dapr true `
 --min-replicas 1 `
 --max-replicas 1 `
 --cpu 0.25 --memory 0.5Gi `
@@ -266,6 +267,7 @@ az containerapp create `
 --env-vars "BackendApiConfig__BaseUrlExternalHttp=<url to your backend api goes here. You can find this on the azure portal overview tab. Look for the Application url property there.>/" `
 --target-port <port number that was generated when you created your docker file in vs code for your frontend application> `
 --ingress 'external' `
+--enable-dapr true `
 --min-replicas 1 `
 --max-replicas 1 `
 --cpu 0.25 --memory 0.5Gi `
@@ -290,7 +292,7 @@ az containerapp create `
 --min-replicas 1 `
 --max-replicas 1 `
 --cpu 0.25 --memory 0.5Gi `
---enable-dapr `
+--enable-dapr true `
 --dapr-app-id  $BACKEND_SVC_NAME `
 --dapr-app-port  <web api application port number found under Dockerfile for the web api project. e.g. 5071> `
 --env-vars "SendGrid__IntegrationEnabled=true"
