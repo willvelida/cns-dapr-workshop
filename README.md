@@ -6,7 +6,7 @@ In this workshop, you will learn:
 
 - The fundamental concepts and architecture of the Dapr Framework.
 - What Dapr building blocks are, including Service Invocation, State Management, Pub/Sub and Bindings.
-- Deploying Dapr applications to Azure Kubernetes Services and Azure Container Apps.
+- Deploying Dapr applications to Azure Container Apps.
 
 ## Workshop Prerequisties
 
