@@ -339,3 +339,4 @@ scopes:
   - tasksmanager-backend-processor
 ```
 
+In the next section, we'll start working with [Dapr Bindings](../5.Bindings/README.md)
