@@ -10,11 +10,14 @@ In this workshop, you will learn:
 
 ## Workshop Prerequisties
 
-- .NET 7
+- [.NET 7](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+- Docker Desktop
+    - [Windows](https://docs.docker.com/desktop/install/windows-install/)
+    - [Mac](https://docs.docker.com/desktop/install/mac-install/)
 - An Azure Subscription
-- Visual Studio Code, or Visual Studio (If you have JetBrains, that's fine 😊 we'll be running our apps via the CLI anyway).
+- [Visual Studio Code](https://code.visualstudio.com/download), or Visual Studio (If you have JetBrains, that's fine 😊 we'll be running our apps via the CLI anyway).
 - [Azure Storage Explorer](https://azure.microsoft.com/en-us/products/storage/storage-explorer/#overview)
-- Azure CLI 
+- [Azure CLI ](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
 
 We will install Dapr as part of this workshop.
 

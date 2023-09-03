@@ -198,6 +198,28 @@ In our Processor project, we'll need to add some settings into our ```appsetting
 }
 ```
 
+**To get an API Key for SendGrid, follow the instructions [here](https://docs.sendgrid.com/ui/account-and-settings/api-keys#creating-an-api-key)**
+
+If you don't want to set up a SendGrid account, you can just simulate sending emails by returning always ok from the TaskSaved method as shown below:
+
+```csharp
+// If you prefer not to deal with setting up a SendGrid account then simply always return OK from the TaskSaved method
+  [Dapr.Topic("dapr-pubsub-servicebus", "tasksavedtopic")]
+  [HttpPost("tasksaved")]
+  public async Task<IActionResult> TaskSaved([FromBody] TaskModel taskModel)
+  {
+      _logger.LogInformation("Started processing message with Task Name '{0}'", taskModel.TaskName);
+      // I decided to simulate a call
+      //var sendGridResponse = await SendEmail(taskModel);
+
+      //if (sendGridResponse.Item1)
+      //{
+          return Ok($"SendGrid response status code: 200");
+      //}
+      //return BadRequest($"Failed to send email, SendGrid response status code: {sendGridResponse.Item1}");
+  }
+```
+
 We'll then need to register the Dapr and Subscribe Handler at the Consumer Startup. To do so, update the ```Program.cs``` file in the Processor project like so:
 
 ```csharp
