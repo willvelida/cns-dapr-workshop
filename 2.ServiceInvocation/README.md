@@ -14,7 +14,7 @@ As we work through the workshop, we'll be adding various Azure resources to supp
 
 Calling between services in distributed applications can be a challenge. Some of these challenges include:
 
-* Where the other services are location.
+* Where the other services are located.
 * How to call other services securely, given the service address
 * How to handle retries when short-lived transient errors occur.
 * Capturing insights across service calls (Critical to debugging issues in Production!)
